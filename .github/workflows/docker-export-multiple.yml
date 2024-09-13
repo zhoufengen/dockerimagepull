@@ -1,5 +1,8 @@
 name: Export Docker Images to Tar
 
+on:
+  workflow_dispatch:
+  
 jobs:
   export:
     runs-on: ubuntu-latest
