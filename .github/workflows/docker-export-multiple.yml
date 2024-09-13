@@ -1,8 +1,5 @@
 name: Export Docker Images to Tar
 
-on:
-  workflow_dispatch:  # 允许手动触发
-
 jobs:
   export:
     runs-on: ubuntu-latest
