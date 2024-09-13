@@ -1,1 +1,98 @@
+name: Export Docker Images to Tar
 
+on:
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      # 拉取镜像并保存为 tar 文件
+      - name: Pull and Save Docker Images
+        run: |
+          # 拉取所有镜像
+          docker pull langgenius/dify-api:0.8.2
+          docker pull langgenius/dify-web:0.8.2
+          docker pull postgres:15-alpine
+          docker pull redis:6-alpine
+          docker pull langgenius/dify-sandbox:0.2.7
+          docker pull ubuntu/squid:latest
+          docker pull certbot/certbot
+          docker pull nginx:latest
+          docker pull semitechnologies/weaviate:1.19.0
+          docker pull langgenius/qdrant:v1.7.3
+          docker pull pgvector/pgvector:pg16
+          docker pull tensorchord/pgvecto-rs:pg16-v0.3.0
+          docker pull ghcr.io/chroma-core/chroma:0.5.1
+          docker pull container-registry.oracle.com/database/free:latest
+          docker pull quay.io/coreos/etcd:v3.5.5
+          docker pull minio/minio:RELEASE.2023-03-20T20-16-18Z
+          docker pull milvusdb/milvus:v2.3.1
+          docker pull opensearchproject/opensearch:latest
+          docker pull opensearchproject/opensearch-dashboards:latest
+          docker pull myscale/myscaledb:1.6.4
+          docker pull docker.elastic.co/elasticsearch/elasticsearch:8.14.3
+          docker pull docker.elastic.co/kibana/kibana:8.14.3
+          docker pull downloads.unstructured.io/unstructured-io/unstructured-api:latest
+
+          # 保存镜像为 tar 文件
+          docker save langgenius/dify-api:0.8.2 -o dify-api-0.8.2.tar
+          docker save langgenius/dify-web:0.8.2 -o dify-web-0.8.2.tar
+          docker save postgres:15-alpine -o postgres-15-alpine.tar
+          docker save redis:6-alpine -o redis-6-alpine.tar
+          docker save langgenius/dify-sandbox:0.2.7 -o dify-sandbox-0.2.7.tar
+          docker save ubuntu/squid:latest -o ubuntu-squid-latest.tar
+          docker save certbot/certbot -o certbot.tar
+          docker save nginx:latest -o nginx-latest.tar
+          docker save semitechnologies/weaviate:1.19.0 -o weaviate-1.19.0.tar
+          docker save langgenius/qdrant:v1.7.3 -o qdrant-v1.7.3.tar
+          docker save pgvector/pgvector:pg16 -o pgvector-pg16.tar
+          docker save tensorchord/pgvecto-rs:pg16-v0.3.0 -o pgvecto-rs-pg16-v0.3.0.tar
+          docker save ghcr.io/chroma-core/chroma:0.5.1 -o chroma-0.5.1.tar
+          docker save container-registry.oracle.com/database/free:latest -o oracle-free-latest.tar
+          docker save quay.io/coreos/etcd:v3.5.5 -o etcd-v3.5.5.tar
+          docker save minio/minio:RELEASE.2023-03-20T20-16-18Z -o minio-2023-03-20.tar
+          docker save milvusdb/milvus:v2.3.1 -o milvus-v2.3.1.tar
+          docker save opensearchproject/opensearch:latest -o opensearch-latest.tar
+          docker save opensearchproject/opensearch-dashboards:latest -o opensearch-dashboards-latest.tar
+          docker save myscale/myscaledb:1.6.4 -o myscaledb-1.6.4.tar
+          docker save docker.elastic.co/elasticsearch/elasticsearch:8.14.3 -o elasticsearch-8.14.3.tar
+          docker save docker.elastic.co/kibana/kibana:8.14.3 -o kibana-8.14.3.tar
+          docker save downloads.unstructured.io/unstructured-io/unstructured-api:latest -o unstructured-api-latest.tar
+
+      # 上传打包好的 tar 文件
+      - name: Upload Docker Images as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: docker-images
+          path: |
+            dify-api-0.8.2.tar
+            dify-web-0.8.2.tar
+            postgres-15-alpine.tar
+            redis-6-alpine.tar
+            dify-sandbox-0.2.7.tar
+            ubuntu-squid-latest.tar
+            certbot.tar
+            nginx-latest.tar
+            weaviate-1.19.0.tar
+            qdrant-v1.7.3.tar
+            pgvector-pg16.tar
+            pgvecto-rs-pg16-v0.3.0.tar
+            chroma-0.5.1.tar
+            oracle-free-latest.tar
+            etcd-v3.5.5.tar
+            minio-2023-03-20.tar
+            milvus-v2.3.1.tar
+            opensearch-latest.tar
+            opensearch-dashboards-latest.tar
+            myscaledb-1.6.4.tar
+            elasticsearch-8.14.3.tar
+            kibana-8.14.3.tar
+            unstructured-api-latest.tar
