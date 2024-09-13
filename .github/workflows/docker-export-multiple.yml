@@ -1,7 +1,14 @@
 name: Export Docker Images to Tar
 
+# 触发工作流的事件
 on:
-  workflow_dispatch:
+  push:              # 每次推送时触发
+    branches:
+      - main         # 仅当推送到 main 分支时触发
+  pull_request:      # 提交 PR 时触发
+    branches:
+      - main         # 仅对 main 分支的 PR 触发
+
   
 jobs:
   export:
