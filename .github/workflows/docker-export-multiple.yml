@@ -30,24 +30,28 @@ jobs:
           docker pull postgres:15-alpine
           docker pull redis:6-alpine
           docker pull langgenius/dify-sandbox:0.2.7
-          docker pull ubuntu/squid:latest
-          docker pull certbot/certbot
-          docker pull nginx:latest
-          docker pull semitechnologies/weaviate:1.19.0
-          docker pull langgenius/qdrant:v1.7.3
-          docker pull pgvector/pgvector:pg16
-          docker pull tensorchord/pgvecto-rs:pg16-v0.3.0
-          docker pull ghcr.io/chroma-core/chroma:0.5.1
-          docker pull container-registry.oracle.com/database/free:latest
-          docker pull quay.io/coreos/etcd:v3.5.5
-          docker pull minio/minio:RELEASE.2023-03-20T20-16-18Z
-          docker pull milvusdb/milvus:v2.3.1
-          docker pull opensearchproject/opensearch:latest
-          docker pull opensearchproject/opensearch-dashboards:latest
-          docker pull myscale/myscaledb:1.6.4
-          docker pull docker.elastic.co/elasticsearch/elasticsearch:8.14.3
-          docker pull docker.elastic.co/kibana/kibana:8.14.3
-          docker pull downloads.unstructured.io/unstructured-io/unstructured-api:latest
+         
+          #docker pull ubuntu/squid:latest
+          #docker pull certbot/certbot
+          #docker pull nginx:latest
+          #docker pull semitechnologies/weaviate:1.19.0
+          #docker pull langgenius/qdrant:v1.7.3
+          
+          #docker pull pgvector/pgvector:pg16
+          #docker pull tensorchord/pgvecto-rs:pg16-v0.3.0
+          #docker pull ghcr.io/chroma-core/chroma:0.5.1
+          #docker pull container-registry.oracle.com/database/free:latest
+          #docker pull quay.io/coreos/etcd:v3.5.5
+         
+          #docker pull minio/minio:RELEASE.2023-03-20T20-16-18Z
+          #docker pull milvusdb/milvus:v2.3.1
+          #docker pull opensearchproject/opensearch:latest
+          #docker pull opensearchproject/opensearch-dashboards:latest
+          #docker pull myscale/myscaledb:1.6.4
+          
+          #docker pull docker.elastic.co/elasticsearch/elasticsearch:8.14.3
+          #docker pull docker.elastic.co/kibana/kibana:8.14.3
+          #docker pull downloads.unstructured.io/unstructured-io/unstructured-api:latest
 
           # 保存镜像为 tar 文件
           docker save langgenius/dify-api:0.8.2 -o dify-api-0.8.2.tar |gzip > dify-api-0.8.2.tar.gz
@@ -55,24 +59,28 @@ jobs:
           docker save postgres:15-alpine -o postgres-15-alpine.tar |gzip > postgres-15-alpine.tar.gz
           docker save redis:6-alpine -o redis-6-alpine.tar |gzip > redis-6-alpine.tar.gz
           docker save langgenius/dify-sandbox:0.2.7 -o dify-sandbox-0.2.7.tar |gzip > dify-sandbox-0.2.7.tar.gz
-          docker save ubuntu/squid:latest -o ubuntu-squid-latest.tar |gzip > .gz
-          docker save certbot/certbot -o certbot.tar |gzip > certbot.tar.gz
-          docker save nginx:latest -o nginx-latest.tar |gzip > nginx-latest.tar.gz
-          docker save semitechnologies/weaviate:1.19.0 -o weaviate-1.19.0.tar |gzip > weaviate-1.19.0.tar.gz
-          docker save langgenius/qdrant:v1.7.3 -o qdrant-v1.7.3.tar |gzip > qdrant-v1.7.3.tar.gz
-          docker save pgvector/pgvector:pg16 -o pgvector-pg16.tar |gzip > pgvector-pg16.tar.gz
-          docker save tensorchord/pgvecto-rs:pg16-v0.3.0 -o pgvecto-rs-pg16-v0.3.0.tar |gzip > pgvecto-rs-pg16-v0.3.0.tar.gz
-          docker save ghcr.io/chroma-core/chroma:0.5.1 -o chroma-0.5.1.tar |gzip > chroma-0.5.1.tar.gz
-          docker save container-registry.oracle.com/database/free:latest -o oracle-free-latest.tar |gzip > oracle-free-latest.tar.gz
-          docker save quay.io/coreos/etcd:v3.5.5 -o etcd-v3.5.5.tar |gzip > etcd-v3.5.5.tar.gz
-          docker save minio/minio:RELEASE.2023-03-20T20-16-18Z -o minio-2023-03-20.tar |gzip > minio-2023-03-20.tar.gz
-          docker save milvusdb/milvus:v2.3.1 -o milvus-v2.3.1.tar |gzip > milvus-v2.3.1.tar.gz
-          docker save opensearchproject/opensearch:latest -o opensearch-latest.tar |gzip > opensearch-latest.tar.gz
-          docker save opensearchproject/opensearch-dashboards:latest -o opensearch-dashboards-latest.tar |gzip > opensearch-dashboards-latest.tar.gz
-          docker save myscale/myscaledb:1.6.4 -o myscaledb-1.6.4.tar |gzip > myscaledb-1.6.4.tar.gz
-          docker save docker.elastic.co/elasticsearch/elasticsearch:8.14.3 -o elasticsearch-8.14.3.tar |gzip > elasticsearch-8.14.3.tar.gz
-          docker save docker.elastic.co/kibana/kibana:8.14.3 -o kibana-8.14.3.tar |gzip > kibana-8.14.3.tar.gz
-          docker save downloads.unstructured.io/unstructured-io/unstructured-api:latest -o unstructured-api-latest.tar |gzip > unstructured-api-latest.tar.gz
+          
+          #docker save ubuntu/squid:latest -o ubuntu-squid-latest.tar |gzip > .gz
+          #docker save certbot/certbot -o certbot.tar |gzip > certbot.tar.gz
+          #docker save nginx:latest -o nginx-latest.tar |gzip > nginx-latest.tar.gz
+          #docker save semitechnologies/weaviate:1.19.0 -o weaviate-1.19.0.tar |gzip > weaviate-1.19.0.tar.gz
+          #docker save langgenius/qdrant:v1.7.3 -o qdrant-v1.7.3.tar |gzip > qdrant-v1.7.3.tar.gz
+          
+          #docker save pgvector/pgvector:pg16 -o pgvector-pg16.tar |gzip > pgvector-pg16.tar.gz
+          #docker save tensorchord/pgvecto-rs:pg16-v0.3.0 -o pgvecto-rs-pg16-v0.3.0.tar |gzip > pgvecto-rs-pg16-v0.3.0.tar.gz
+          #docker save ghcr.io/chroma-core/chroma:0.5.1 -o chroma-0.5.1.tar |gzip > chroma-0.5.1.tar.gz
+          #docker save container-registry.oracle.com/database/free:latest -o oracle-free-latest.tar |gzip > oracle-free-latest.tar.gz
+          #docker save quay.io/coreos/etcd:v3.5.5 -o etcd-v3.5.5.tar |gzip > etcd-v3.5.5.tar.gz
+          
+          #docker save minio/minio:RELEASE.2023-03-20T20-16-18Z -o minio-2023-03-20.tar |gzip > minio-2023-03-20.tar.gz
+          #docker save milvusdb/milvus:v2.3.1 -o milvus-v2.3.1.tar |gzip > milvus-v2.3.1.tar.gz
+          #docker save opensearchproject/opensearch:latest -o opensearch-latest.tar |gzip > opensearch-latest.tar.gz
+          #docker save opensearchproject/opensearch-dashboards:latest -o opensearch-dashboards-latest.tar |gzip > opensearch-dashboards-latest.tar.gz
+          #docker save myscale/myscaledb:1.6.4 -o myscaledb-1.6.4.tar |gzip > myscaledb-1.6.4.tar.gz
+          
+          #docker save docker.elastic.co/elasticsearch/elasticsearch:8.14.3 -o elasticsearch-8.14.3.tar |gzip > elasticsearch-8.14.3.tar.gz
+          #docker save docker.elastic.co/kibana/kibana:8.14.3 -o kibana-8.14.3.tar |gzip > kibana-8.14.3.tar.gz
+          #docker save downloads.unstructured.io/unstructured-io/unstructured-api:latest -o unstructured-api-latest.tar |gzip > unstructured-api-latest.tar.gz
          
 
       # 上传打包好的 tar 文件
@@ -86,21 +94,25 @@ jobs:
             postgres-15-alpine.tar.gz
             redis-6-alpine.tar.gz
             dify-sandbox-0.2.7.tar.gz
-            ubuntu-squid-latest.tar.gz
-            certbot.tar.gz
-            nginx-latest.tar.gz
-            weaviate-1.19.0.tar.gz
-            qdrant-v1.7.3.tar.gz
-            pgvector-pg16.tar.gz
-            pgvecto-rs-pg16-v0.3.0.tar.gz
-            chroma-0.5.1.tar.gz
-            oracle-free-latest.tar.gz
-            etcd-v3.5.5.tar.gz
-            minio-2023-03-20.tar.gz
-            milvus-v2.3.1.tar.gz
-            opensearch-latest.tar.gz
-            opensearch-dashboards-latest.tar.gz
-            myscaledb-1.6.4.tar.gz
-            elasticsearch-8.14.3.tar.gz
-            kibana-8.14.3.tar.gz
-            unstructured-api-latest.tar.gz
+           
+            #ubuntu-squid-latest.tar.gz
+            #certbot.tar.gz
+            #nginx-latest.tar.gz
+            #weaviate-1.19.0.tar.gz
+            #qdrant-v1.7.3.tar.gz
+            
+            #pgvector-pg16.tar.gz
+            #pgvecto-rs-pg16-v0.3.0.tar.gz
+            #chroma-0.5.1.tar.gz
+            #oracle-free-latest.tar.gz
+            #etcd-v3.5.5.tar.gz
+            
+            #minio-2023-03-20.tar.gz
+            #milvus-v2.3.1.tar.gz
+            #opensearch-latest.tar.gz
+            #opensearch-dashboards-latest.tar.gz
+            #myscaledb-1.6.4.tar.gz
+            
+            #elasticsearch-8.14.3.tar.gz
+            #kibana-8.14.3.tar.gz
+            #unstructured-api-latest.tar.gz
